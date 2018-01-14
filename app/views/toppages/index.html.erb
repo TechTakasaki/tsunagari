@@ -1,10 +1,14 @@
 <% content_for :cover do %>
-  <div class="cover">
-    <div class="cover-inner">
-      <div class="cover-contents">
-        <h1>毎日のつながりは、ここから始まる</h1>
-        <a href="" class="btn btn-success btn-lg">まずは会員登録から</a>
+  <% if logged_in? %>
+    <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <% else %>
+    <div class="cover">
+      <div class="cover-inner">
+        <div class="cover-contents">
+          <h1>毎日のつながりは、ここから始まる</h1>
+          <%= link_to 'まずは会員登録から', signup_path, class: 'btn btn-success btn-lg' %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
