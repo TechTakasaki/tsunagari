@@ -8,18 +8,18 @@
     <%= form_for(:session, url: login_path) do |f| %>
 
       <div class="form-group">
-        <%= f.label :email, 'Email' %>
+        <%= f.label :email, 'メールアドレス' %>
         <%= f.email_field :email, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password, 'Password' %>
+        <%= f.label :password, 'パスワード' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
 
-      <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'ログイン', class: 'btn btn-primary btn-md' %>
     <% end %>
 
-    <p>New user? <%= link_to 'ログイン', signup_path %></p>
+    <p>新規の方は? <%= link_to '会員登録', signup_path %></p>
   </div>
 </div>

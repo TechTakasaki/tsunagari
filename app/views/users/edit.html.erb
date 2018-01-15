@@ -1,2 +1,58 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">ユーザー更新</div>
+      <div class="panel-body">
+        <%= form_for(@user) do |f| %>
+          <div class="gravatar_edit">
+            <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, size: 100) %>" alt="">
+            <a href="http://gravatar.com/emails" target="_blank">画像編集</a>
+          </div>
+          <br />
+          <div class="form-group">
+            <%= f.label :name, '名前' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email, 'メールアドレス' %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, 'パスワード' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, 'パスワード（確認）' %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :自己紹介 %>
+            <%= f.text_area :introduction, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :address, '出身地'  %>
+            <%= f.text_field :address, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :age, '年齢'  %>
+            <%= f.text_field :age, class: 'form-control' %>
+          </div>
+
+          <div class="text-right">
+            <%= f.submit '更新する', class: 'btn btn-success btn-sm' %>
+          </div><br />
+          
+          <div class="text-right">
+            <%= link_to '登録解除', @user, method: :delete, data: { confirm: "本当に削除してよろしいですか?" }, class: 'btn btn-danger btn-sm' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

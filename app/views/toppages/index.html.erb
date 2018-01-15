@@ -1,12 +1,28 @@
 <% content_for :cover do %>
   <% if logged_in? %>
-    <p>ログイン完了ユーザ: <%= current_user.name %></p>
+    <div class="row">
+      <aside class="col-md-4">
+        <%= form_for(@post, html: {multipart: true}) do |f| %>
+          <div class="form-group">
+            <%= f.label :picture %>
+            <%= f.file_field :picture %><br />
+            <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          </div>
+          <%= f.submit '投稿', class: 'btn btn-primary btn-md' %>
+        <% end %>
+      </aside>
+      <div class="col-xs-8">
+        <%= render 'posts/posts', posts: @posts, pictures: @pictures %>
+      </div>
+    </div>
   <% else %>
     <div class="cover">
       <div class="cover-inner">
         <div class="cover-contents">
           <h1>毎日のつながりは、ここから始まる</h1>
-          <%= link_to 'まずは会員登録から', signup_path, class: 'btn btn-success btn-lg' %>
+          <p><%= image_tag('/images/smartphone.jpg' , :size =>"480x360") %></p>
+          <%= link_to 'まずは会員登録から', signup_path, class: 'btn btn-success btn-md' %>
+          <%= link_to '会員の方はこちら', login_path, class: 'btn btn-success btn-md' %>
         </div>
       </div>
     </div>
