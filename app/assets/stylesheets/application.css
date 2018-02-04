@@ -43,3 +43,7 @@ footer {
   font-weight: bold;
   letter-spacing: 0.15em;
 }
+.row {
+  background: url("/images/talk.jpg") center center no-repeat;
+  background-size: cover;
+}

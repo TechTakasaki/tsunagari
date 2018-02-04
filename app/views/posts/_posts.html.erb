@@ -1,13 +1,13 @@
 <ul class="media-list">
   <% posts.each do |post| %>
     <% user = post.user %>
-    <li class="media">
+    <li class="media  panel panel-default">
       <div class="media-left">
         <img class="media-object img-rounded" src="<%= gravatar_url(user, options = { size: 50 }) %>" alt="">
       </div>
       <div class="media-body">
         <div>
-          <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= post.created_at %></span>
+          <%= link_to user.name, user_path(user) %> <span class="text-muted">投稿日時 <%= post.created_at %></span>
         </div>
         <div>
           <p><%= image_tag post.picture,:size =>"280x210" %></p>

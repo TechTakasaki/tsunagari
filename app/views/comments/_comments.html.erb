@@ -2,7 +2,7 @@
   <% post_comments.each do |post_comment| %>
     <% user = post_comment.user %>
     <div>
-      <p>投稿者:<%= link_to user.name, user_path(user) %> <span class="text-muted">commented at <%= post_comment.created_at %></span></p>
+      <p>投稿者:<%= link_to user.name, user_path(user) %> <span class="text-muted">コメント日時 <%= post_comment.created_at %></span></p>
     </div>
     <p><%= post_comment.content %></p>
     <div>
@@ -11,5 +11,4 @@
       <% end %>
     </div>
   <% end %>
-  <%= paginate @post_comments %>
 </ul>

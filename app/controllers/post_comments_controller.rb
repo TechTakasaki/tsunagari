@@ -29,10 +29,10 @@ class PostCommentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_post_comment
-    @post = Post.find(params[:post_id])
-    @post_comment = @post.post_comments.find(params[:id])
-  end
+  #def set_post_comment
+    #@post = Post.find(params[:post_id])
+    #@post_comment = @post.post_comments.find(params[:id])
+  #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def post_comment_params
