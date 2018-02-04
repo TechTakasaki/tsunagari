@@ -10,8 +10,16 @@
           <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= post.created_at %></span>
         </div>
         <div>
-          <p><%= image_tag post.picture,:size =>"360x270" %></p>
+          <p><%= image_tag post.picture,:size =>"280x210" %></p>
           <p><%= post.content %></p>
+          <%= render 'comments/comments', post_comments: post.post_comments %>
+          <br/>
+          <% if current_user %>
+            <%= form_for [post, PostComment.new] do |form| %>
+              <%= form.text_area :content, cols: "30", placeholder: "コメントする", rows: "2" %>
+              <%= form.submit "コメントの投稿" %>
+            <% end %>
+          <% end %>  
         </div>
         <div>
           <% if current_user == post.user %>

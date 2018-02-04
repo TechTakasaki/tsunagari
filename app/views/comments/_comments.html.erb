@@ -1,0 +1,15 @@
+<ul class="media-list">
+  <% post_comments.each do |post_comment| %>
+    <% user = post_comment.user %>
+    <div>
+      <p>投稿者:<%= link_to user.name, user_path(user) %> <span class="text-muted">commented at <%= post_comment.created_at %></span></p>
+    </div>
+    <p><%= post_comment.content %></p>
+    <div>
+      <% if current_user == post_comment.user %>
+        <%= link_to "削除", post_comment, method: :delete, data: { confirm: "本当に削除してよろしいですか?" }, class: 'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= paginate @post_comments %>
+</ul>

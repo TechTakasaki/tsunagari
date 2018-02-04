@@ -15,7 +15,10 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:index, :create, :destroy, :show] , shallow: true do 
+    resources :post_comments, only: [:index, :create, :destroy]
+  end
+  
   resources :relationships, only: [:create, :destroy]
   get 'signup', to: 'users#new'
 end
